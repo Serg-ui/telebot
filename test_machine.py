@@ -18,13 +18,15 @@ class TestPizza(unittest.TestCase):
         self.assertEqual(self.pizza.chosen_size, input_word)
 
     def test_pay_state(self):
-
+        input_word = 'wrong'
         self.pizza.to_choose_pay()
-        self.pizza.input('wrong')
+        self.pizza.input(input_word)
         self.assertEqual(self.pizza.state, 'choose_pay')
 
-        self.pizza.input('карта')
+        input_word = 'карта'
+        self.pizza.input(input_word)
         self.assertEqual(self.pizza.state, 'check')
+        self.assertEqual(self.pizza.chosen_pay, input_word)
 
     def test_check_state(self):
         self.pizza.to_check()
