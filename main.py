@@ -10,7 +10,7 @@ pizza = Pizza()
 
 
 @bot.message_handler()
-def set_value(message):
+def entry(message):
     pizza.input(message.text)
     bot.reply_to(message, pizza.output_text)
 
